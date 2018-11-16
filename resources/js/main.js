@@ -1,13 +1,11 @@
+import Vue from 'vue'
+import App from './main'
+import store from './store'
+import router from './router'
+import { sync } from 'vuex-router-sync'
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+sync(store, router)
 
-require('./bootstrap');
-
-window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -28,6 +26,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app'
+new Vue({
+    el: '#app',
+    router,
+    store,
+    // template: '<App/>',
+    components: { App },
 });
