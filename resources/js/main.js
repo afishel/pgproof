@@ -30,6 +30,6 @@ new Vue({
     el: '#app',
     router,
     store,
-    // template: '<App/>',
+    template: '<App/>',
     components: { App },
 });

@@ -1,7 +1,17 @@
+import dashboard from './dashboard'
+
 const state = {
   items: [
-
-  ]
+    dashboard,
+  ],
 }
 
-export default state
+const mutations = {}
+
+const actions = {}
+
+export default {
+  state,
+  mutations,
+  actions,
+}

@@ -1,0 +1,21 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": { "browsers": ["last 2 versions", "android >= 4.4.2", "ios_saf > 9"] },
+        "useBuiltIns": "usage",
+        "modules": false,
+        "debug": true
+      }
+    ],
+    "stage-2"
+  ],
+  "plugins": ["transform-object-assign", "transform-runtime"],
+  "comments": false,
+  "env": {
+    "test": {
+      "plugins": [ "istanbul"  ]
+    }
+  }
+}

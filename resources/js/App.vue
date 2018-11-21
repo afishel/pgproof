@@ -1,12 +1,15 @@
 <template>
   <div id="app" class="app">
-    <h1>Hello World!</h1>
+    <layout></layout>
   </div>
 </template>
 
 <script>
-
+import Layout from "./components/Layout";
 export default {
   name: 'app',
+  components: {
+    Layout,
+  },
 }
 </script>
