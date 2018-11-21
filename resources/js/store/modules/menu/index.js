@@ -1,8 +1,10 @@
 import dashboard from './dashboard'
+import inspections from './inspections'
 
 const state = {
   items: [
     dashboard,
+    inspections,
   ],
 }
 

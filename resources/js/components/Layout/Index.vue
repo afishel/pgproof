@@ -1,8 +1,18 @@
 <template>
   <div class="page">
-    <header id="app-header" class="banner" role="banner">
-      <h1>PGProof</h1>
-    </header>
+    <nav id="app-navigation" class="navigation" role="navigation">
+      <a href="/" class="site-branding">
+        <img src="#" alt="Logo" width="150" height="150">
+      </a>
+      <ul>
+        <li>
+          <router-link :to="{ name: 'Dashboard' }">Dashboard</router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'Inspections' }">Inspections</router-link>
+        </li>
+      </ul>
+    </nav>
     <main id="app-main" class="main" role="main">
       <router-view></router-view>
     </main>
