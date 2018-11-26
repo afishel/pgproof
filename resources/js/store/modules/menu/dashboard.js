@@ -3,9 +3,13 @@ import lazyLoading from './lazyLoading'
 export default {
   name: 'Dashboard',
   path: '/dashboard',
-  component: lazyLoading('Routes/Dashboard/Dashboard'),
+  components: {
+    default: lazyLoading('Routes/Dashboard/Dashboard'),
+  },
   meta: {
     default: true,
-    title: 'Dashboard'
+    title: 'Dashboard',
+    isInMenu: true,
+    hasSidebar: false,
   }
 }

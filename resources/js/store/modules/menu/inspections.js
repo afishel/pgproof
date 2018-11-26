@@ -3,9 +3,14 @@ import lazyLoading from './lazyLoading'
 export default {
   name: 'Inspections',
   path: '/inspections',
-  component: lazyLoading('Routes/Inspections/Inspections'),
+  components: {
+    default: lazyLoading('Routes/Inspections/Inspections'),
+    sidebar: lazyLoading('Routes/Inspections/InspectionsSidebar'),
+  },
   meta: {
     default: true,
-    title: 'Inspections'
+    title: 'Inspections',
+    isInMenu: true,
+    hasSidebar: true,
   }
 }
