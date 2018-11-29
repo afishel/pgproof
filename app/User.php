@@ -11,6 +11,8 @@ class User extends Authenticatable
 {
     use Notifiable, SoftDeletes;
 
+    protected $appends = ['full_name'];
+
     protected $casts = [
         'id' => 'integer',
         'user_role_id' => 'integer',
@@ -43,4 +45,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
+    }
 }

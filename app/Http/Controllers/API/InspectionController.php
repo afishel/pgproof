@@ -8,6 +8,15 @@ use App\Http\Controllers\Controller;
 
 class InspectionController extends Controller
 {
+
+    protected $with = [
+        'inspectionRecurrence',
+        'inspectionStatus',
+        'inspectionType',
+        'inspector',
+        'site.organization',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +24,8 @@ class InspectionController extends Controller
      */
     public function index()
     {
-        return Inspection::paginate(15);
+        $inspections = Inspection::with($this->with);
+        return $inspections->paginate(15);
     }
 
     /**

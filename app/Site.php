@@ -39,4 +39,9 @@ class Site extends Model
         'fax',
         'email',
     ];
+
+    public function Organization()
+    {
+        return $this->belongsTo('App\Organization');
+    }
 }

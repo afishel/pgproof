@@ -6,11 +6,12 @@ $factory->define(App\Inspection::class, function (Faker $faker) {
     $scheduled_at = $faker->dateTime();
     $started_at = array_random([$faker->dateTimeBetween($scheduled_at, 'now'), null]);
     $ended_at = $started_at ? array_random([$faker->dateTimeBetween($started_at, 'now'), null]) : null;
+    $status = $ended_at ? 2 : array_random([1, 3]);
 
     return [
         'uuid' => $faker->uuid,
         'site_id' => $faker->numberBetween(1, 350),
-        'inspection_status_id' => $faker->numberBetween(1, 3),
+        'inspection_status_id' => $status,
         'inspection_type_id' => $faker->numberBetween(1, 10),
         'inspector_id' => $faker->numberBetween(1, 50),
         'inspection_recurrence_id' => null,

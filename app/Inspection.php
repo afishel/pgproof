@@ -19,9 +19,9 @@ class Inspection extends Model
         'inspection_recurrence_id' => 'integer',
         'autocomplete' => 'boolean',
         'comments' => 'string',
-        'scheduled_at' => 'datetime:Y-m-d',
-        'started_at' => 'datetime:c',
-        'ended_at' => 'datetime:c',
+        'scheduled_at' => 'datetime',
+        'started_at' => 'datetime',
+        'ended_at' => 'datetime',
     ];
 
     protected $fillable = [
@@ -37,4 +37,29 @@ class Inspection extends Model
         'started_at',
         'ended_at',
     ];
+
+    public function site()
+    {
+        return $this->belongsTo('App\Site');
+    }
+
+    public function inspectionStatus()
+    {
+        return $this->belongsTo('App\InspectionStatus');
+    }
+
+    public function inspectionType()
+    {
+        return $this->belongsTo('App\InspectionType');
+    }
+
+    public function inspectionRecurrence()
+    {
+        return $this->belongsTo('App\InspectionRecurrence');
+    }
+
+    public function inspector()
+    {
+        return $this->belongsTo('App\User', 'inspector_id');
+    }
 }

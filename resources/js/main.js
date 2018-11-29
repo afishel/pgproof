@@ -3,6 +3,7 @@ import App from './App'
 import store from './store'
 import router from './router'
 import { sync } from 'vuex-router-sync'
+import Paginate from 'vuejs-paginate'
 
 sync(store, router)
 
@@ -15,7 +16,8 @@ sync(store, router)
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('icon', require('./components/UI/Icon/Icon.vue'));
+Vue.component('icon', require('./components/UI/Icon/Icon.vue'))
+Vue.component('paginate', Paginate)
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))

@@ -74,5 +74,7 @@
         "webpack-hot-middleware": "2.18.2",
         "webpack-merge": "4.1.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "vuejs-paginate": "^2.0.1"
+    }
 }

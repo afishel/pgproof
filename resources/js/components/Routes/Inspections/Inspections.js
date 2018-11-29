@@ -15,9 +15,14 @@ export default {
     },
   },
   methods: {
-    ...mapActions([
+    ...mapActions('inspections', [
       'getInspections',
+      'updateQuery'
     ]),
+
+    toPage(page = 1) {
+      this.updateQuery({ page })
+    }
   },
   mounted() {
     this.getInspections()
