@@ -3,7 +3,6 @@ const state = {
 }
 
 const getters = {
-  inspections(state) { return state.items }
 }
 
 const mutations = {

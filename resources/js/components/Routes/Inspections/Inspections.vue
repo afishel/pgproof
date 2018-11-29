@@ -17,7 +17,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in inspections" :key="item.id">
+            <tr v-for="item in inspections.items" :key="item.id">
               <td>{{ item.scheduled_at }}</td>
               <td>{{ item.type }}</td>
               <td>{{ item.organization }}</td>

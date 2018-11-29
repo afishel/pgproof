@@ -12,5 +12,6 @@ export default {
     title: 'Inspections',
     isInMenu: true,
     hasSidebar: true,
+    icon: 'inspections'
   }
 }

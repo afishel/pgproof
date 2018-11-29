@@ -11,5 +11,6 @@ export default {
     title: 'Dashboard',
     isInMenu: true,
     hasSidebar: false,
+    icon: 'dashboard',
   }
 }

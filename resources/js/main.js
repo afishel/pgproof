@@ -15,7 +15,7 @@ sync(store, router)
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('icon', require('./components/UI/Icon/Icon.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -31,5 +31,7 @@ new Vue({
     router,
     store,
     template: '<App/>',
-    components: { App },
+    components: {
+      App,
+    },
 });

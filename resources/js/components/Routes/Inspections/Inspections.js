@@ -1,5 +1,5 @@
 import AppHeader from '../../Layout/Header/Header.vue'
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'Inspections',
@@ -7,7 +7,7 @@ export default {
     AppHeader,
   },
   computed: {
-    ...mapGetters([
+    ...mapState([
       'inspections',
     ]),
     title() {

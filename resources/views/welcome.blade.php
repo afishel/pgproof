@@ -8,10 +8,12 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://i.icomoon.io/public/1997ee3882/PG/style-svg.css">
         <link href="/css/app.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="app"></div>
         <script src="/js/main.js"></script>
+        <script defer src="https://i.icomoon.io/public/1997ee3882/PG/svgxuse.js"></script>
     </body>
 </html>
