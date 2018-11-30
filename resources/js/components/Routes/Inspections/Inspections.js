@@ -1,7 +1,8 @@
 import AppHeader from '../../Layout/Header/Header.vue'
 import { mapActions, mapState } from 'vuex'
 
-const debounce = require('lodash.debounce')
+const _debounce = require('lodash.debounce')
+const _find = require('lodash.find')
 
 export default {
   name: 'Inspections',
@@ -9,8 +10,10 @@ export default {
     AppHeader,
   },
   computed: {
-    ...mapState([
-      'inspections',
+    ...mapState('inspections', [
+      'items',
+      'pagination',
+      'saved',
     ]),
     title() {
       return this.$store.state.route.name
@@ -19,10 +22,24 @@ export default {
   methods: {
     ...mapActions('inspections', [
       'getInspections',
-      'updateQuery'
+      'saveToStorage',
+      'updateQuery',
     ]),
 
-    toPage: debounce(function(page = 1) {
+    checkSaved(id) {
+      const inspection = _find(this.saved, { id })
+      return inspection
+    },
+
+    downloadInspection(inspection) {
+      this.saveToStorage(inspection)
+    },
+
+    sortBy: function (column) {
+      this.updateQuery({ orderby: column + ':asc' })
+    },
+
+    toPage: _debounce(function(page = 1) {
       this.updateQuery({ page })
     }, 800, this)
   },

@@ -24,7 +24,7 @@ class InspectionController extends Controller
      */
     public function index()
     {
-        $inspections = Inspection::with($this->with);
+        $inspections = Inspection::sortable()->with($this->with);
         return $inspections->paginate(15);
     }
 

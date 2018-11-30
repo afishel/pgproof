@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Input;
 
 class Inspection extends Model
 {
@@ -61,5 +62,19 @@ class Inspection extends Model
     public function inspector()
     {
         return $this->belongsTo('App\User', 'inspector_id');
+    }
+
+    public function scopeSortable($query) {
+        $term = 'scheduled_at';
+        $direction = 'desc';
+
+        if (Input::has('orderby')) {
+            $sort = Input::get('orderby');
+            $sort = explode(':', $sort);
+            $term = $sort[0];
+            $direction = $sort[1];
+        }
+
+        return $query->orderBy($term, $direction);
     }
 }

@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+const _find = require('lodash.find')
+
 const state = {
   items: [],
   pagination: {
@@ -11,7 +13,9 @@ const state = {
   },
   query: {
     page: 1,
-  }
+    orderby: 'scheduled_at:desc',
+  },
+  saved: [],
 }
 
 const getters = {
@@ -33,24 +37,35 @@ const mutations = {
   },
   SET_QUERY(state, payload) {
     state.query = Object.assign(state.query, payload)
+  },
+  DOWNLOAD_INSPECTION(state, payload) {
+    state.saved.push(payload)
   }
 }
 
 const actions = {
-  getInspections({ state, commit }) {
+  getInspections({ state, commit, rootState }) {
     const path = '/api/inspections'
-    axios.get(path, { params: state.query }).then(response => {
-      if (response.data) {
-        commit('SET_INSPECTIONS', response.data.data)
-        commit('SET_PAGINATION', response.data)
-      }
-    }).catch(error => new Error(error))
+    if (rootState.offline) {
+      commit('SET_INSPECTIONS', state.saved)
+    } else {
+      axios.get(path, { params: state.query }).then(response => {
+        if (response.data) {
+          commit('SET_INSPECTIONS', response.data.data)
+          commit('SET_PAGINATION', response.data)
+        }
+      }).catch(error => new Error(error))
+    }
   },
 
   updateQuery({ dispatch, commit }, query) {
     commit('SET_QUERY', query)
     dispatch('getInspections')
   },
+
+  saveToStorage({ commit }, inspection) {
+    commit('DOWNLOAD_INSPECTION', inspection)
+  }
 }
 
 export default {

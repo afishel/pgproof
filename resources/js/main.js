@@ -5,6 +5,7 @@ import router from './router'
 import { sync } from 'vuex-router-sync'
 import Paginate from 'vuejs-paginate'
 import VueMoment from 'vue-moment'
+import { mapActions } from 'vuex';
 
 sync(store, router)
 
@@ -37,5 +38,15 @@ new Vue({
     template: '<App/>',
     components: {
       App,
+    },
+    methods: {
+      ...mapActions([
+        'checkNetworkStatus'
+      ])
+    },
+    mounted() {
+      this.checkNetworkStatus()
+      window.addEventListener('online', this.checkNetworkStatus)
+      window.addEventListener('offline', this.checkNetworkStatus)
     },
 });

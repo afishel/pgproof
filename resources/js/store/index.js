@@ -10,9 +10,19 @@ const store = new Vuex.Store({
     inspections,
     menu,
   },
-  mutations: {},
-  state: {},
-
+  mutations: {
+    SET_NETWORK_STATUS(state, payload) {
+      state.offline = payload
+    }
+  },
+  state: {
+    offline: false,
+  },
+  actions: {
+    checkNetworkStatus({ commit }) {
+      commit('SET_NETWORK_STATUS', !window.navigator.onLine)
+    }
+  }
 })
 
 export default store
