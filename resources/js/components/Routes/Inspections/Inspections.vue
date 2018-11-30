@@ -14,18 +14,20 @@
               <th>Status</th>
               <th>Recurring</th>
               <th>Performed On</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="item in inspections.items" :key="item.id">
-              <td>{{ item.scheduled_at }}</td>
+              <td>{{ item.scheduled_at | moment('L') }}</td>
               <td>{{ item.inspection_type.name }}</td>
               <td>{{ item.site.organization.name }}</td>
               <td>{{ item.site.name }}</td>
               <td>{{ item.inspector.full_name }}</td>
               <td>{{ item.inspection_status.name }}</td>
               <td>{{ item.inspection_recurrence_id ? 'Yes' : 'No' }}</td>
-              <td>{{ item.ended_at }}</td>
+              <td>{{ item.ended_at | moment('L LT') }}</td>
+              <td><icon :icon="'cloud_download'" /></td>
             </tr>
           </tbody>
         </table>

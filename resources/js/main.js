@@ -4,9 +4,11 @@ import store from './store'
 import router from './router'
 import { sync } from 'vuex-router-sync'
 import Paginate from 'vuejs-paginate'
+import VueMoment from 'vue-moment'
 
 sync(store, router)
 
+Vue.use(VueMoment)
 
 /**
  * The following block of code may be used to automatically register your
