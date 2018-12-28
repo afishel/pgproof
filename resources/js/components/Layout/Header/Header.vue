@@ -12,3 +12,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+  .app-header {
+    grid-area: header;
+  }
+</style>

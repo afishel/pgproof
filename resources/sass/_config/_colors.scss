@@ -1,0 +1,54 @@
+$colors: (
+  primary: (
+    base: hsl(207, 98%, 38%),
+    darker: hsl(207, 100%, 33%),
+    lighter: hsl(207, 80%, 58%),
+    highlight: hsl(207, 80%, 94%)
+  ),
+  secondary: (
+    base: hsl(7, 85%, 40%),
+    darker: hsl(1, 72%, 28%),
+    lighter: hsl(1, 72%, 46%)
+  ),
+  navigation: (
+    darkest: hsl(212, 15%, 14%),
+    darker: hsl(212, 15%, 17%),
+    base: hsl(212, 15%, 20%),
+    light: hsl(212, 14%, 35%),
+    lighter: hsl(212, 14%, 50%),
+    lightest: hsl(212, 14%, 58%)
+  ),
+  shades: (
+    darkest: hsl(0, 0%, 0%),
+    darker: hsl(240, 9%, 15%),
+    dark: hsl(240, 9%, 30%),
+    base: hsl(0, 0%, 60%),
+    light: hsl(0, 0%, 82%),
+    lighter: hsl(207, 20%, 97%),
+    lightest: hsl(0, 0%, 100%)
+  ),
+  success: (
+    darker: hsl(128, 63%, 36%),
+    base: hsl(128, 63%, 46%),
+    lighter: hsl(128, 63%, 56%)
+  ),
+  error: (
+    darker: hsl(0, 63%, 36%),
+    base: hsl(0, 63%, 46%),
+    lighter: hsl(0, 63%, 56%)
+  ),
+  leads: (
+    default: hsl(207, 98%, 38%),
+    ready: hsl(128, 63%, 36%),
+  ),
+  industry: (
+    childcare: #b1a0c7,
+    housing: #ffc000,
+    leisure: #00b0f0,
+    military: #f00,
+    other: #fcd5b4,
+    park-rec: #b8cce4,
+    religious: #ff0,
+    school: #c4d79b,
+  )
+);

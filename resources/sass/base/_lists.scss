@@ -1,0 +1,18 @@
+/**
+ * Lists
+ *
+ * Recommended:
+ * dl, dt, dd, ol, ul, li
+ */
+ol[class],
+ul[class] {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ul {
+  padding-left: calc(var(--gutter) * 1.2);
+  margin: calc(var(--gutter) / 2) 0;
+  list-style-type: square;
+}

@@ -1,6 +1,697 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);.navbar-laravel {
-  background-color: #fff;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+@import url(https://fonts.googleapis.com/css?family=Nunito);@font-face {
+  font-family: System;
+  font-style: normal;
+  font-weight: 300;
+  src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+}
+
+/**
+ * Convert px to rem units
+ * Don't use string interpolation
+ *
+ * @params $size
+ */
+
+/**
+ * Get break from config/breakpoints.scss
+ *
+ * @requires $breakpoints
+ * @params $breakpoint
+ */
+
+/**
+ * Get color from config/colors.scss
+ *
+ * @requires $colors
+ * @params $color, $tone
+ */
+
+/**
+ * Get min-value font-size from config/font-sizes.scss
+ *
+ * @requires $font-sizes
+ * @params $font-size
+ */
+
+/**
+ * Get trans-easing from config/trans-easings.scss
+ *
+ * @requires $trans-easings
+ * @params $trans-easing
+ */
+
+/**
+ * Get transition speed from config/transitions.scss
+ *
+ * @requires $speeds
+ * @params $speed
+ */
+
+/**
+ * Get z-index from config/z-indexes.scss
+ *
+ * @requires $z-indexes
+ * @params $index
+ */
+
+/**
+ * Output props from a config map
+ *
+ * @params $map
+ */
+
+/**
+ * Get site variables from config/layout.scss
+ *
+ * @requires $site
+ * @params $var, $range
+ */
+
+/**
+ * Get min-value font-size from config/spacings.scss
+ *
+ * @requires $spacings
+ * @params $spacing
+ */
+
+/**
+ * Get unitless value
+ *
+ * @params $value
+ */
+
+/**
+ * Get icon from config/icons.scss
+ *
+ * @requires $icons
+ * @params $icon
+ */
+
+/**
+ * Output fluid sizing using calc values and 100vw.
+ *
+ * @requires functions/calc-rem
+ * @requires functions/get-unitless
+ * @params $props, $min-vw, $max-vw, $min-value, $max-value
+ * @link http://www.sassmeister.com/gist/7f22e44ace49b5124eec
+ */
+
+/**
+ * Output fluid font size calcs from config
+ *
+ * @requires mixins/fluid
+ * @params $font-size
+ */
+
+/**
+ * Output font stack props from config
+ *
+ * @requires functions/get-props
+ * @params $font-stack
+ */
+
+/**
+ * Output media queries based on breakpoint or custom rem/px value
+ *
+ * @params $breakpoint
+ */
+
+/**
+ * Output fluid spacing calcs from config
+ *
+ * @requires mixins/fluid
+ * @params $spacing
+ */
+
+:root {
+  --mobile: false;
+  --desktop: false;
+  --gutter: 1rem;
+  --color-primary-base: #026ac0;
+  --color-primary-darker: #005da8;
+  --color-primary-lighter: #3e9cea;
+  --color-primary-highlight: #e3f1fc;
+  --color-secondary-base: #bd240f;
+  --color-secondary-darker: #7b1614;
+  --color-secondary-lighter: #ca2421;
+  --color-navigation-darkest: #1e2329;
+  --color-navigation-darker: #252b32;
+  --color-navigation-base: #2b323b;
+  --color-navigation-light: #4d5866;
+  --color-navigation-lighter: #6e7e91;
+  --color-navigation-lightest: #8593a3;
+  --color-shades-darkest: black;
+  --color-shades-darker: #23232a;
+  --color-shades-dark: #464653;
+  --color-shades-base: #999999;
+  --color-shades-light: #d1d1d1;
+  --color-shades-lighter: #f6f8f9;
+  --color-shades-lightest: white;
+  --color-success-darker: #229631;
+  --color-success-base: #2bbf3f;
+  --color-success-lighter: #48d55b;
+  --color-error-darker: #962222;
+  --color-error-base: #bf2b2b;
+  --color-error-lighter: #d54848;
+  --color-leads-default: #026ac0;
+  --color-leads-ready: #229631;
+  --color-industry-childcare: #b1a0c7;
+  --color-industry-housing: #ffc000;
+  --color-industry-leisure: #00b0f0;
+  --color-industry-military: #f00;
+  --color-industry-other: #fcd5b4;
+  --color-industry-park-rec: #b8cce4;
+  --color-industry-religious: #ff0;
+  --color-industry-school: #c4d79b;
+}
+
+@media (max-width: 48rem) {
+  :root {
+    --mobile: true;
+  }
+}
+
+@media (min-width: 48.0625rem) {
+  :root {
+    --desktop: true;
+  }
+}
+
+@media (max-width: 20rem) {
+  :root {
+    --screen: 'xxs';
+  }
+}
+
+@media (min-width: 20.0625rem) and (max-width: 35.9375rem) {
+  :root {
+    --screen: 'xs';
+  }
+}
+
+@media (min-width: 36rem) and (max-width: 47.9375rem) {
+  :root {
+    --screen: 'sm';
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 61.9375rem) {
+  :root {
+    --screen: 'md';
+  }
+}
+
+@media (min-width: 62rem) and (max-width: 79.9375rem) {
+  :root {
+    --screen: 'lg';
+  }
+}
+
+@media (min-width: 80rem) and (max-width: 89.9375rem) {
+  :root {
+    --screen: 'xl';
+  }
+}
+
+@media (min-width: 90rem) {
+  :root {
+    --screen: 'xx';
+  }
+}
+
+/**
+ * Elements
+ *
+ * Recommended:
+ * article, aside, details, figcaption, figure, footer, header, hgroup, main, mark, menu, nav, section, summary, time
+ */
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html,
+body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  /*
+  $units: rem, em;
+  @if index($units, unit($min-value)) != null {
+    $min-vw: calc-rem($min-vw);
+    $max-vw: calc-rem($max-vw);
+  }
+  */
+  font-size: 0.75rem;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (min-width: 36rem) {
+  html {
+    font-size: calc(0.75rem + 0.375 * (100vw - 36rem) / 64);
+  }
+}
+
+@media (min-width: 100rem) {
+  html {
+    font-size: 1.125rem;
+  }
+}
+
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+/**
+ * Formatting
+ *
+ * Recommended:
+ * em, small, strong, ins, del, mark, p, pre, code, blockquote, q, address, cite
+ */
+
+p {
+  margin: 0;
+}
+
+p:not(:last-child) {
+  margin-bottom: var(--gutter);
+}
+
+img[src$=".svg"],
+.icon {
+  width: 1em;
+  height: 1em;
+}
+
+.icon {
+  vertical-align: middle;
+}
+
+.tal {
+  text-align: left;
+}
+
+.tac {
+  text-align: center;
+}
+
+.tar {
+  text-align: right;
+}
+
+.whsnw {
+  white-space: nowrap;
+}
+
+.linethrough {
+  text-decoration: line-through;
+}
+
+/**
+ * Forms
+ *
+ * Recommended:
+ * form, input, textarea, label, fieldset, legend, select, optgroup, option, button, datalist, keygen, output
+ */
+
+input[type="checkbox"],
+input[type="select"],
+input[type="radio"],
+input[type="submit"],
+button,
+label[for] {
+  cursor: pointer;
+}
+
+textarea {
+  max-height: 12em;
+  min-height: 5em;
+  resize: vertical;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1em;
+}
+
+button,
+button:active,
+button:focus,
+button:hover,
+input,
+input:active,
+input:focus,
+input:hover,
+optgroup,
+optgroup:active,
+optgroup:focus,
+optgroup:hover,
+select,
+select:active,
+select:focus,
+select:hover,
+textarea,
+textarea:active,
+textarea:focus,
+textarea:hover {
+  outline: none;
+}
+
+/**
+ * Headings
+ *
+ * Recommended:
+ * h1, h2, h3, h4, h5, h6, hr
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  margin: 0 0 0.5em;
+}
+
+.peta {
+  /*
+  $units: rem, em;
+  @if index($units, unit($min-value)) != null {
+    $min-vw: calc-rem($min-vw);
+    $max-vw: calc-rem($max-vw);
+  }
+  */
+  font-size: 2.375rem;
+}
+
+@media (min-width: 20rem) {
+  .peta {
+    font-size: calc(2.375rem + 0.875 * (100vw - 20rem) / 60);
+  }
+}
+
+@media (min-width: 80rem) {
+  .peta {
+    font-size: 3.25rem;
+  }
+}
+
+.tera {
+  /*
+  $units: rem, em;
+  @if index($units, unit($min-value)) != null {
+    $min-vw: calc-rem($min-vw);
+    $max-vw: calc-rem($max-vw);
+  }
+  */
+  font-size: 2rem;
+}
+
+@media (min-width: 20rem) {
+  .tera {
+    font-size: calc(2rem + 0.375 * (100vw - 20rem) / 60);
+  }
+}
+
+@media (min-width: 80rem) {
+  .tera {
+    font-size: 2.375rem;
+  }
+}
+
+.giga {
+  /*
+  $units: rem, em;
+  @if index($units, unit($min-value)) != null {
+    $min-vw: calc-rem($min-vw);
+    $max-vw: calc-rem($max-vw);
+  }
+  */
+  font-size: 1.75rem;
+}
+
+@media (min-width: 20rem) {
+  .giga {
+    font-size: calc(1.75rem + 0.25 * (100vw - 20rem) / 60);
+  }
+}
+
+@media (min-width: 80rem) {
+  .giga {
+    font-size: 2rem;
+  }
+}
+
+h1,
+.mega {
+  /*
+  $units: rem, em;
+  @if index($units, unit($min-value)) != null {
+    $min-vw: calc-rem($min-vw);
+    $max-vw: calc-rem($max-vw);
+  }
+  */
+  font-size: 1.5rem;
+}
+
+@media (min-width: 20rem) {
+  h1,
+  .mega {
+    font-size: calc(1.5rem + 0.25 * (100vw - 20rem) / 60);
+  }
+}
+
+@media (min-width: 80rem) {
+  h1,
+  .mega {
+    font-size: 1.75rem;
+  }
+}
+
+h2,
+.kilo {
+  /*
+  $units: rem, em;
+  @if index($units, unit($min-value)) != null {
+    $min-vw: calc-rem($min-vw);
+    $max-vw: calc-rem($max-vw);
+  }
+  */
+  font-size: 1.375rem;
+}
+
+@media (min-width: 20rem) {
+  h2,
+  .kilo {
+    font-size: calc(1.375rem + 0.125 * (100vw - 20rem) / 60);
+  }
+}
+
+@media (min-width: 80rem) {
+  h2,
+  .kilo {
+    font-size: 1.5rem;
+  }
+}
+
+h3,
+.hecto {
+  /*
+  $units: rem, em;
+  @if index($units, unit($min-value)) != null {
+    $min-vw: calc-rem($min-vw);
+    $max-vw: calc-rem($max-vw);
+  }
+  */
+  font-size: 1.125rem;
+}
+
+@media (min-width: 20rem) {
+  h3,
+  .hecto {
+    font-size: calc(1.125rem + 0.25 * (100vw - 20rem) / 60);
+  }
+}
+
+@media (min-width: 80rem) {
+  h3,
+  .hecto {
+    font-size: 1.375rem;
+  }
+}
+
+h4,
+.deca {
+  /*
+  $units: rem, em;
+  @if index($units, unit($min-value)) != null {
+    $min-vw: calc-rem($min-vw);
+    $max-vw: calc-rem($max-vw);
+  }
+  */
+  font-size: 1rem;
+}
+
+@media (min-width: 20rem) {
+  h4,
+  .deca {
+    font-size: calc(1rem + 0.125 * (100vw - 20rem) / 60);
+  }
+}
+
+@media (min-width: 80rem) {
+  h4,
+  .deca {
+    font-size: 1.125rem;
+  }
+}
+
+h5,
+.base {
+  /*
+  $units: rem, em;
+  @if index($units, unit($min-value)) != null {
+    $min-vw: calc-rem($min-vw);
+    $max-vw: calc-rem($max-vw);
+  }
+  */
+  font-size: 0.875rem;
+}
+
+@media (min-width: 20rem) {
+  h5,
+  .base {
+    font-size: calc(0.875rem + 0.125 * (100vw - 20rem) / 60);
+  }
+}
+
+@media (min-width: 80rem) {
+  h5,
+  .base {
+    font-size: 1rem;
+  }
+}
+
+h6,
+.deci {
+  /*
+  $units: rem, em;
+  @if index($units, unit($min-value)) != null {
+    $min-vw: calc-rem($min-vw);
+    $max-vw: calc-rem($max-vw);
+  }
+  */
+  font-size: 0.75rem;
+}
+
+@media (min-width: 20rem) {
+  h6,
+  .deci {
+    font-size: calc(0.75rem + 0.125 * (100vw - 20rem) / 60);
+  }
+}
+
+@media (min-width: 80rem) {
+  h6,
+  .deci {
+    font-size: 0.875rem;
+  }
+}
+
+/**
+ * Links
+ *
+ * Recommended:
+ * a:link, a:visited, a:hover, a:active
+ */
+
+a,
+a:active,
+a:focus,
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+a[href]:focus,
+a[href]:hover {
+  color: #026ac0;
+  color: var(--color-primary-base, #026ac0);
+}
+
+a:not([class]) {
+  color: #026ac0;
+  color: var(--color-primary-base, #026ac0);
+}
+
+a:not([class]):focus,
+a:not([class]):hover {
+  color: #005da8;
+  color: var(--color-primary-darker, #005da8);
+}
+
+/**
+ * Lists
+ *
+ * Recommended:
+ * dl, dt, dd, ol, ul, li
+ */
+
+ol[class],
+ul[class] {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ul {
+  padding-left: calc(var(--gutter) * 1.2);
+  margin: calc(var(--gutter) / 2) 0;
+  list-style-type: square;
+}
+
+/**
+ * Media
+ *
+ * Recommended:
+ * img, audio, embed, source, track, video
+ */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Tables
+ *
+ * Recommended:
+ * table, tbody, tfoot, thead, tr, th, td
+ */
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.is-hidden,
+.hidden {
+  display: none !important;
 }
 

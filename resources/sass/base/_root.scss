@@ -1,0 +1,66 @@
+$var: (
+);
+
+@function map_colors($key, $value) {
+  $map: ();
+
+  @each $name, $color in $value {
+    $map: map-merge($map, (color-#{$key}-#{$name}: $color));
+  }
+
+  @return $map;
+}
+
+@each $key, $value in $colors {
+  $map: ();
+  $map: map-merge($map, map_colors($key, $value));
+  $var: map-merge($var, $map);
+}
+
+:root {
+  $pixel: 1 / 16;
+
+  --mobile: false;
+  --desktop: false;
+  --gutter: 1rem;
+
+  @each $key, $value in $var {
+    --#{$key}: #{$value};
+  }
+
+  @include breakpoint(max-width get-break(md)) {
+    --mobile: true;
+  }
+
+  @include breakpoint(get-break(md) + $pixel) {
+    --desktop: true;
+  }
+
+  @include breakpoint(max-width get-break(xs)) {
+    --screen: 'xxs';
+  }
+
+  @include breakpoint(((get-break(xs) + $pixel) (get-break(sm) - $pixel))) {
+    --screen: 'xs';
+  }
+
+  @include breakpoint((get-break(sm) (get-break(md) - $pixel))) {
+    --screen: 'sm';
+  }
+
+  @include breakpoint((get-break(md) (get-break(lg) - $pixel))) {
+    --screen: 'md';
+  }
+
+  @include breakpoint((get-break(lg) (get-break(xl) - $pixel))) {
+    --screen: 'lg';
+  }
+
+  @include breakpoint((get-break(xl) (get-break(xx) - $pixel))) {
+    --screen: 'xl';
+  }
+
+  @include breakpoint(get-break(xx)) {
+    --screen: 'xx';
+  }
+}

@@ -1,0 +1,43 @@
+/**
+ * Formatting
+ *
+ * Recommended:
+ * em, small, strong, ins, del, mark, p, pre, code, blockquote, q, address, cite
+ */
+p {
+  margin: 0;
+
+  &:not(:last-child) {
+    margin-bottom: var(--gutter);
+  }
+}
+
+img[src$=".svg"],
+.icon {
+  width: 1em;
+  height: 1em;
+}
+
+.icon {
+  vertical-align: middle;
+}
+
+.tal {
+  text-align: left;
+}
+
+.tac {
+  text-align: center;
+}
+
+.tar {
+  text-align: right;
+}
+
+.whsnw {
+  white-space: nowrap;
+}
+
+.linethrough {
+  text-decoration: line-through;
+}

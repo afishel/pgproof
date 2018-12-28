@@ -21,6 +21,7 @@ Vue.use(VueMoment)
 
 Vue.component('icon', require('./components/UI/Icon/Icon.vue'))
 Vue.component('paginate', Paginate)
+Vue.component('toggleInput', require('./components/UI/Selection/Switch/Switch.vue'))
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))

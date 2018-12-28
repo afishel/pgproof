@@ -1,0 +1,36 @@
+/**
+ * Forms
+ *
+ * Recommended:
+ * form, input, textarea, label, fieldset, legend, select, optgroup, option, button, datalist, keygen, output
+ */
+input[type="checkbox"],
+input[type="select"],
+input[type="radio"],
+input[type="submit"],
+button,
+label[for] {
+  cursor: pointer;
+}
+
+textarea {
+  max-height: 12em;
+  min-height: 5em;
+  resize: vertical;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1em;
+
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+}

@@ -15,4 +15,4 @@
 </template>
 
 <script src="./Navigation.js"></script>
-<style src="./Navigation.scss"></style>
+<style lang="scss" src="./Navigation.scss"></style>

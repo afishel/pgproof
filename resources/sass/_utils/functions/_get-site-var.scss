@@ -1,0 +1,15 @@
+/**
+ * Get site variables from config/layout.scss
+ *
+ * @requires $site
+ * @params $var, $range
+ */
+@function get-site-var($var, $range: "max") {
+  @if map-has-key($site, $var) {
+    $var: map-get(map-get($site, $var), $range);
+
+    @return $var;
+  }
+
+  @warn "#{$var} not found.";
+}

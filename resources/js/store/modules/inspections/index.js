@@ -1,6 +1,33 @@
 import axios from 'axios'
 
-const _find = require('lodash.find')
+const _orderBy = require('lodash.orderby')
+const _reject = require('lodash.reject')
+const itemsPerPage = 15
+
+function getOfflineInspections(query) {
+  return new Promise((resolve, reject) => {
+    let current_page = query.page
+    const orderby = query.orderby ? query.orderby.split(':') : ['scheduled_at', 'desc'];
+    const items = _orderBy(state.saved, orderby[0], orderby[1])
+    const last_page = Math.ceil(items.length / itemsPerPage)
+
+    if (current_page > last_page) {
+      current_page = last_page
+    }
+
+    const from = itemsPerPage * (current_page - 1)
+    const to = itemsPerPage * current_page
+
+    resolve({
+      current_page,
+      last_page,
+      from,
+      to,
+      total: items.length,
+      data: items.slice(from, to)
+    })
+  })
+}
 
 const state = {
   items: [],
@@ -22,6 +49,14 @@ const getters = {
 }
 
 const mutations = {
+  DOWNLOAD_INSPECTION(state, payload) {
+    state.saved.push(payload)
+  },
+
+  REMOVE_INSPECTION(state, payload) {
+    state.saved = _reject(state.saved, { id: payload })
+  },
+
   SET_INSPECTIONS(state, payload) {
     state.items = payload
   },
@@ -35,19 +70,20 @@ const mutations = {
       total: payload.total,
     }
   },
+
   SET_QUERY(state, payload) {
     state.query = Object.assign(state.query, payload)
   },
-  DOWNLOAD_INSPECTION(state, payload) {
-    state.saved.push(payload)
-  }
 }
 
 const actions = {
   getInspections({ state, commit, rootState }) {
     const path = '/api/inspections'
     if (rootState.offline) {
-      commit('SET_INSPECTIONS', state.saved)
+      getOfflineInspections(state.query).then(response => {
+        commit('SET_INSPECTIONS', response.data)
+        commit('SET_PAGINATION', response)
+      })
     } else {
       axios.get(path, { params: state.query }).then(response => {
         if (response.data) {
@@ -58,14 +94,22 @@ const actions = {
     }
   },
 
-  updateQuery({ dispatch, commit }, query) {
-    commit('SET_QUERY', query)
-    dispatch('getInspections')
+  goToInspection(id) {
+    this.$router.push({ path: 'inspection', params: { id } })
+  },
+
+  removeFromStorage({ commit }, id) {
+    commit('REMOVE_INSPECTION', id)
   },
 
   saveToStorage({ commit }, inspection) {
     commit('DOWNLOAD_INSPECTION', inspection)
-  }
+  },
+
+  updateQuery({ dispatch, commit }, query) {
+    commit('SET_QUERY', query)
+    dispatch('getInspections')
+  },
 }
 
 export default {

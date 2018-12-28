@@ -1,0 +1,70 @@
+$leading: 1.4 !default;
+
+$font-sizes: (
+  milli: (
+    min-size: 10px,
+    max-size: 11px,
+    min-vw: xs,
+    max-vw: xl,
+  ),
+  centi: (
+    min-size: 11px,
+    max-size: 12px,
+    min-vw: xs,
+    max-vw: xl,
+  ),
+  deci: (
+    min-size: 12px,
+    max-size: 14px,
+    min-vw: xs,
+    max-vw: xl,
+  ),
+  base: (
+    min-size: 14px,
+    max-size: 16px,
+    min-vw: xs,
+    max-vw: xl,
+  ),
+  deca: (
+    min-size: 16px,
+    max-size: 18px,
+    min-vw: xs,
+    max-vw: xl,
+  ),
+  hecto: (
+    min-size: 18px,
+    max-size: 22px,
+    min-vw: xs,
+    max-vw: xl,
+  ),
+  kilo: (
+    min-size: 22px,
+    max-size: 24px,
+    min-vw: xs,
+    max-vw: xl,
+  ),
+  mega: (
+    min-size: 24px,
+    max-size: 28px,
+    min-vw: xs,
+    max-vw: xl,
+  ),
+  giga: (
+    min-size: 28px,
+    max-size: 32px,
+    min-vw: xs,
+    max-vw: xl,
+  ),
+  tera: (
+    min-size: 32px,
+    max-size: 38px,
+    min-vw: xs,
+    max-vw: xl,
+  ),
+  peta: (
+    min-size: 38px,
+    max-size: 52px,
+    min-vw: xs,
+    max-vw: xl,
+  ),
+);

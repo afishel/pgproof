@@ -1,0 +1,15 @@
+/**
+ * Get icon from config/icons.scss
+ *
+ * @requires $icons
+ * @params $icon
+ */
+@function get-icon($icon) {
+  @if map-has-key($icons, $icon) {
+    $icon: map-get($icons, $icon);
+
+    @return $icon;
+  }
+
+  @warn "#{$icon} not found.";
+}

@@ -1,0 +1,33 @@
+/**
+ * Links
+ *
+ * Recommended:
+ * a:link, a:visited, a:hover, a:active
+ */
+a {
+  // transition: color get-trans-speed(fast);
+
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &[href] {
+    &:focus,
+    &:hover {
+      @include var(color, color-primary-base);
+    }
+  }
+
+  &:not([class]) {
+    @include var(color, color-primary-base);
+
+    &:focus,
+    &:hover {
+      @include var(color, color-primary-darker);
+    }
+  }
+}

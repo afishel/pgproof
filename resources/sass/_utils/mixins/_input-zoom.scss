@@ -1,0 +1,6 @@
+@mixin input-zoom($font-size: 16, $scale: 0.875) {
+  width: calc((#{$font-size} / (#{$font-size} * #{$scale})) * 100%);
+  margin-left: calc(((#{$font-size} / (#{$font-size} * #{$scale}) * 100%) - 100%) / -2);
+  transform: scale(#{$scale});
+  font-size: #{$font-size}px;
+}

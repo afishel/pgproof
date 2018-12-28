@@ -1,0 +1,27 @@
+$font-stacks: (
+  primary: (
+    base: (
+      'font-family': 'Roboto, Helvetica, Arial, sans-serif',
+      'font-weight': "400",
+    ),
+    baseItalic: (
+      'font-family': 'Roboto, Helvetica, Arial, sans-serif',
+      'font-weight': "400",
+      'font-style': "italic",
+    ),
+    bold: (
+      'font-family': 'Roboto, Helvetica, Arial, sans-serif',
+      'font-weight': "900",
+    ),
+    boldItalic: (
+      'font-family': 'Roboto, Helvetica, Arial, sans-serif',
+      'font-weight': "900",
+      'font-style': "italic",
+    )
+  ),
+  sans: (
+    base: (
+      'font-family': '"Lato", sans-serif',
+    )
+  )
+);

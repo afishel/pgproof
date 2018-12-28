@@ -1,0 +1,32 @@
+/**
+ * Elements
+ *
+ * Recommended:
+ * article, aside, details, figcaption, figure, footer, header, hgroup, main, mark, menu, nav, section, summary, time
+ */
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+html,
+body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  @include fluid(font-size, 0.75rem, 1.125rem, get-break(sm), get-break(xxx));
+
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+body {
+  @include font-stack(primary);
+}

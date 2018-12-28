@@ -10,6 +10,7 @@ export default {
     AppHeader,
   },
   computed: {
+    ...mapState(['offline']),
     ...mapState('inspections', [
       'items',
       'pagination',
@@ -22,6 +23,7 @@ export default {
   methods: {
     ...mapActions('inspections', [
       'getInspections',
+      'removeFromStorage',
       'saveToStorage',
       'updateQuery',
     ]),
@@ -29,10 +31,6 @@ export default {
     checkSaved(id) {
       const inspection = _find(this.saved, { id })
       return inspection
-    },
-
-    downloadInspection(inspection) {
-      this.saveToStorage(inspection)
     },
 
     sortBy: function (column) {

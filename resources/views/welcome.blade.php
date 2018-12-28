@@ -7,7 +7,7 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,900,900i" rel="stylesheet">
         <link rel="stylesheet" href="https://i.icomoon.io/public/1997ee3882/PG/style-svg.css">
         <link href="/css/app.css" rel="stylesheet" type="text/css">
     </head>

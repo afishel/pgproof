@@ -1,0 +1,57 @@
+/**
+ * Headings
+ *
+ * Recommended:
+ * h1, h2, h3, h4, h5, h6, hr
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include font-stack(primary, bold);
+  margin: 0 0 0.5em;
+}
+
+.peta {
+  @include font-size(peta);
+}
+
+.tera {
+  @include font-size(tera);
+}
+
+.giga {
+  @include font-size(giga);
+}
+
+h1,
+.mega {
+  @include font-size(mega);
+}
+
+h2,
+.kilo {
+  @include font-size(kilo);
+}
+
+h3,
+.hecto {
+  @include font-size(hecto);
+}
+
+h4,
+.deca {
+  @include font-size(deca);
+}
+
+h5,
+.base {
+  @include font-size(base);
+}
+
+h6,
+.deci {
+  @include font-size(deci);
+}
